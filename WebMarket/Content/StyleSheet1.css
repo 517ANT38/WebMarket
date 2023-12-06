@@ -1,0 +1,70 @@
+﻿body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.item{
+    padding:20px;
+}
+.myForm {
+    text-align: center;
+    display: flex;
+}
+.dfgfg{
+    display:flex;
+    
+}
+.dfgfg>p{
+    margin:10px;
+    font-size:20px;
+}
+table{
+    border:2px solid;
+}
+td, th {
+    border: 2px solid;
+    text-align: center;
+    width: 200px;
+}
+.myConfirm {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.05);
+}
+
+.myConfirm > div {
+    width: 200px;
+    margin: 10% auto;
+    padding: 10px 20px;
+    border: 1px solid black;
+    background: #ccc;
+}
+
+.myConfirm div p {
+    text-align: center;
+}
+
+.myConfirm div button {
+    width: 40%;
+    margin: 0 5%;
+}
+.mytable {
+    display: none;
+    border: 1px solid;
+}
+
+.mytable>div {
+    
+    border: 1px solid;
+    
+}
+.mytable > div>span {
+    border: 1px solid;
+}

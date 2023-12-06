@@ -1,0 +1,21 @@
+﻿@model WebMarket.Models.Client
+
+@{
+    
+    ViewBag.Title = "Спасибо";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+<body>
+    <div> 
+        <p>Спасибо за заказ @Model.Family @Model.Name @Model.Patronymic</p>
+        <p>@Html.ActionLink("На главную","Index","Home")</p>
+    </div>
+</body>
+</html>

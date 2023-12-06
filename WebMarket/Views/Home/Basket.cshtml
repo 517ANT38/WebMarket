@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebMarket.Models.Product>
+
+@{
+    
+    ViewBag.Title = "Корзина";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+   
+</head>
+<body>
+    <p>@Html.ActionLink("На главную", "Index", "Home")</p>
+    <table>
+        <tr>
+            <th>
+                <p>Наименование</p>
+            </th>
+            <th>
+                <p>Описание</p>
+            </th>
+            <th>
+                <p>Сколько заказано</p>
+            </th>
+            <th>
+                <p>Стоимость за единицу товара</p>
+            </th>
+            
+        </tr>
+
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var item = Model.ElementAt(i);
+            <tr class="trchekCount">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <button type="button" class="dec" value="@item.Id">-</button>
+                    <span class="checkDel" id="@("counterTd"+@i)">@Html.DisplayFor(modelItem => item.Count)</span>
+                    <button type="button" class="inc" value="@item.Id">+</button>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                
+            </tr>
+        }
+
+    </table>
+    <p>@Html.ActionLink("Оформить заказ", "Arrange")</p>
+    <script src="~/Scripts/script2.js"></script>
+   
+    <script src="~/Scripts/script1.js"></script>
+</body>
+</html>

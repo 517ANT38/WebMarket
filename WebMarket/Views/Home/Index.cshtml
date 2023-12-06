@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebMarket.Models.Product>
+@using WebMarket.Models;
+@{
+
+    Layout = null;
+    ViewBag.Title = "Главная";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="dfgfg">
+        <p>Здесь меню</p>
+        <p>
+            <a href="@Url.Action("Basket","Home")">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+
+            </a>
+        </p>
+        <p>@Html.ActionLink("Авторизоваться", "Authorization", "OrderRegistration")</p>
+        <p>@Html.ActionLink("AdminPage", "AdminPage", "Admin")</p>
+    </div>
+    <h2>Привествуем в нашем интернет магазине</h2>
+    
+
+    <div class="catalog">
+
+
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            Product item = Model.ElementAt(i);
+
+            <div class="item">
+                <p>
+                    <strong>Наименование:</strong> @Html.DisplayFor(modelItem => item.Name)
+                </p>
+                <p>
+                    <strong>Описание:</strong>@Html.DisplayFor(modelItem => item.Description)
+                </p>
+                <p>
+                    <strong> В наличии:</strong>@Html.DisplayFor(modelItem => item.Count)<span>шт.</span>
+                </p>
+
+                <p>
+                    <strong>Стоимость в руб. за ед.:</strong>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </p>
+                <div id="@("range"+@i)" style="display:none;">
+                    
+                    <button type="button" class="decL" >-</button>
+                    <span id="@("counter"+i)">1</span>
+                    <button type="button" class="incL">+</button>
+                </div>
+            <p><button type="button" class="submitB" value="@item.Id">Добавить в корзину</button></p>
+            
+        </div>
+    }
+
+    </div>
+    <script src="~/Scripts/script1.js"></script>
+    <script src="~/Scripts/script.js"></script>
+    <script src="~/Scripts/jquery-3.6.3.js"></script>
+</body>
+</html>

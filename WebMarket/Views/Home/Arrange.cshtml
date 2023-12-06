@@ -1,0 +1,29 @@
+﻿@model WebMarket.Models.NewOrder
+
+@{
+    ViewBag.Title = "Оформление";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+   
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>@Html.ValidationSummary()</p>
+            <p>@Html.LabelFor(x => x.DateDelivery):@Html.EditorFor(x => x.DateDelivery)  </p>
+            <p>@Html.DropDownListFor(x => x.MethodOfIssue, new SelectList(new string[] { "Самовывоз", "Курьер" }))</p>
+
+            <p><input type="submit" value="Отправить" /></p>
+        }
+    </div>
+    <script src="~/Scripts/script5.js"></script>
+    <script src="~/Scripts/script7.js"></script>
+</body>
+</html>

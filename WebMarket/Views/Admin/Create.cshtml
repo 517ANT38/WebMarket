@@ -1,0 +1,38 @@
+﻿@model WebMarket.Models.NewProduct
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>
+                @Html.LabelFor(x => x.Name):
+                @Html.TextBoxFor(x => x.Name)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.Description):
+                @Html.TextBoxFor(x => x.Description)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.Price):
+                @Html.TextBoxFor(x => x.Price)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.Count):
+                @Html.TextBoxFor(x => x.Count)
+            </p>
+            <input type="submit" value="Создать"/>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@model WebMarket.Models.NewClient
+
+@{
+    ViewBag.Title = "Регистарация";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+    @*<link href="~/Content/StyleSheet1.css" rel="stylesheet" />*@
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Registration", "OrderRegistration", FormMethod.Post))
+        {
+            <p>@Html.ValidationMessageFor(x => x.Family)</p>
+            <p>@Html.LabelFor(x => x.Family) : @Html.TextBoxFor(x => x.Family)</p>
+            <p>@Html.ValidationMessageFor(x => x.Name)</p>
+            <p>@Html.LabelFor(x => x.Name) : @Html.TextBoxFor(x => x.Name)</p>
+            <p>@Html.LabelFor(x => x.Patronymic) : @Html.TextBoxFor(x => x.Patronymic)</p>
+            <p>@Html.ValidationMessageFor(x => x.Phone)</p>
+            <p>@Html.LabelFor(x => x.Phone) : @Html.TextBoxFor(x => x.Phone)</p>
+            <p>@Html.ValidationMessageFor(x => x.Email)</p>
+            <p>@Html.LabelFor(x => x.Email) : @Html.TextBoxFor(x => x.Email)</p>
+            <p>@Html.ValidationMessageFor(x => x.Password)</p>
+            <p>@Html.LabelFor(x => x.Password) : @Html.PasswordFor(x => x.Password)</p>
+            <p>@Html.ValidationMessageFor(x => x.ConfirmPassword)</p>
+            <p>@Html.LabelFor(x => x.ConfirmPassword) : @Html.PasswordFor(x => x.ConfirmPassword)</p>
+            <input type="submit" value="Зарегистрироваться" />
+        }
+    </div>
+    <script src="~/Scripts/script3.js"></script>
+   
+</body>
+</html>

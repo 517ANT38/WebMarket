@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebMarket.Models.Product>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddEditProduct</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create","Admin")
+    </p>
+    <p>@Html.ActionLink("На главную", "Index", "Home")</p>
+    <table>
+        <tr>
+            <th>
+                <p>Наименование</p>
+            </th>
+            <th>
+                <p>Описание</p>
+            </th>
+            <th>
+                <p>Количество</p>
+            </th>
+            <th>
+                <p>Стоимость за единицу товара</p>
+            </th>
+            <th></th>
+        </tr>
+
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var item = Model.ElementAt(i);
+            <tr class="trchekCount">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <button type="button" class="dec" >-</button>
+                    <span class="checkDel" id="@("counterTd"+@i)">@Html.DisplayFor(modelItem => item.Count)</span>
+                    <button type="button" class="inc" >+</button>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td><button type="button" class="edit" value="@item.Id">Внести изменения</button></td>
+            </tr>
+        }
+
+    </table>
+    <script src="~/Scripts/script122.js"></script>
+</body>
+</html>

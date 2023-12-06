@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebMarket.Models.Order>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminPage</title>
+</head>
+<body>
+
+    <p>@Html.ActionLink("На главную", "Index", "Home")</p>
+    <p>
+        @Html.ActionLink("Create New", "Create", "Admin")
+    </p>
+    <p>
+        @Html.ActionLink("Edit", "AddEditProduct", "Admin")
+    </p>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id_client)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOrder)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateDelivery)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MethodOfIssue)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                int i = 0;
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id_client)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOrder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateDelivery)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MethodOfIssue)
+                    </td>
+                    <td>
+                        <button type="button" id="@("button"+i))" class="bT">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">  
+                    <div id="@("table"+i)" class="mytable">
+                        <div>
+                            <span>Id</span>
+                            <span>Название</span>
+                            <span>Описание</span>
+                            <span>Сколько заказано</span>
+                            <span>Общая стоимость заказа</span>
+                        </div>
+                        @foreach (var gitem in item.Products)
+                        {
+                            <div>
+                                <span>@gitem.Id</span>
+                                <span>@gitem.Name</span>
+                                <span>@gitem.Description</span>
+                                <span>@gitem.Count</span>
+                                <span>@gitem.Count*@gitem.Price</span>
+                            </div>
+                        }
+                    </div>
+                        </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <script src="~/Scripts/script8.js"></script>
+</body>
+</html>
